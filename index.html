@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Marukh!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body { margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; background: #fff5f8; font-family: 'Arial', sans-serif; overflow: hidden; text-align: center; }
+        .container { z-index: 10; }
+        #gift-container { cursor: pointer; transition: transform 0.3s; margin-top: 20px; }
+        #gift-container:active { transform: scale(0.9); }
+        .gift-box { font-size: 120px; line-height: 1; }
+        .open-text { background: #ff4081; color: white; border: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4); }
+        #message { display: none; padding: 20px; animation: zoomIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        h1 { color: #ad1457; font-size: 1.8rem; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+        @keyframes zoomIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div id="setup" class="container">
+        <h2 style="color: #d81b60; font-size: 2rem;">Happy Birthday!</h2>
+        <div id="gift-container" onclick="openGift()">
+            <div class="gift-box">🎁</div>
+            <button class="open-text">OPEN</button>
+        </div>
+    </div>
+
+    <div id="message" class="container">
+        <h1>
+            🥰happy 🥳birthday 😍Marukh 💖g 🤫<br>
+            Allah 👆🏻pak 😇AP 👉🏻ko sare 🙌🏻khoshiyan🥰 do😘💥<br>
+            or 😄kesy bi chez 🎉ki kami❤️ mahsos 😿na hone🎉🎊 di<br>
+            inshallah 💖 Ameen 🎉 
+        </h1>
+    </div>
+
+    <script>
+        function openGift() {
+            var duration = 5 * 1000;
+            var animationEnd = Date.now() + duration;
+
+            var interval = setInterval(function() {
+                var timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) return clearInterval(interval);
+
+                confetti({ particleCount: 40, spread: 70, origin: { x: 0, y: 0 } });
+                confetti({ particleCount: 40, spread: 70, origin: { x: 1, y: 0 } });
+                confetti({ particleCount: 40, spread: 70, origin: { x: 0, y: 1 } });
+                confetti({ particleCount: 40, spread: 70, origin: { x: 1, y: 1 } });
+            }, 300);
+
+            document.getElementById('setup').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
